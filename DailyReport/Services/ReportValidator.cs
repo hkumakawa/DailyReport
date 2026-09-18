@@ -1,7 +1,7 @@
+using DailyReport.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using DailyReport.Models;
 using ReportModel = DailyReport.Models.DailyReport;
 
 namespace DailyReport.Services
