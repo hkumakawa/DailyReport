@@ -1,11 +1,10 @@
+using DailyReport.Models;
+using DailyReport.Services;
 using System;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Linq;
 using System.Runtime.CompilerServices;
-using System.Windows;
-using DailyReport.Models;
-using DailyReport.Services;
 using ReportModel = DailyReport.Models.DailyReport;
 
 namespace DailyReport.ViewModels

@@ -1,7 +1,5 @@
-using System;
 using System.Linq;
 using System.Text;
-using DailyReport.Models;
 using ReportModel = DailyReport.Models.DailyReport;
 
 namespace DailyReport.Services
@@ -28,7 +26,7 @@ namespace DailyReport.Services
             var deliverables = report.Deliverables.Where(x => !string.IsNullOrWhiteSpace(x?.Name) || !string.IsNullOrWhiteSpace(x?.Link)).ToList();
             if (deliverables.Count == 0) b.AppendLine("- 成果物なし");
             else foreach (var x in deliverables)
-                b.AppendLine(string.IsNullOrWhiteSpace(x.Link) ? "- " + Escape(x.Name) : "- [" + Escape(x.Name) + "](" + x.Link.Trim() + ")");
+                    b.AppendLine(string.IsNullOrWhiteSpace(x.Link) ? "- " + Escape(x.Name) : "- [" + Escape(x.Name) + "](" + x.Link.Trim() + ")");
             return b.ToString();
         }
         /// <summary>Markdown制御文字をエスケープします。<</summary>

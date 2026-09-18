@@ -17,18 +17,4 @@ namespace DailyReport.Models
         /// <summary>成果物。<</summary>
         public ObservableCollection<Deliverable> Deliverables { get; set; } = new ObservableCollection<Deliverable>();
     }
-    /// <summary>作業項目です。<</summary>
-    public class TaskItem
-    {
-        /// <summary>内容。<</summary>
-        public string Content { get; set; }
-    }
-    /// <summary>成果物です。<</summary>
-    public class Deliverable
-    {
-        /// <summary>成果物名。<</summary>
-        public string Name { get; set; }
-        /// <summary>リンク。<</summary>
-        public string Link { get; set; }
-    }
 }

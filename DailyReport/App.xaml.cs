@@ -1,6 +1,6 @@
-using System.Windows;
 using DailyReport.Services;
 using DailyReport.ViewModels;
+using System.Windows;
 
 namespace DailyReport
 {
