@@ -1,7 +1,7 @@
 ---
 name: wpf-mvvm
 description: |
-WPF + MVVMアプリケーション作成時に利用する。
+WPF MVVMアプリケーション作成時に利用する。
 ViewModel、Model、Service分割方針を定義する。
 ---
 
