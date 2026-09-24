@@ -1,19 +1,60 @@
-<Window x:Class="DailyReport.MainWindow" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Title="日報作成" Height="650" Width="900">
-  <ScrollViewer>
-    <StackPanel Margin="16">
-      <TextBlock Text="名前"/><TextBox Text="{Binding Name, UpdateSourceTrigger=PropertyChanged}"/>
-      <TextBlock Text="日付" Margin="0,8,0,0"/><DatePicker SelectedDate="{Binding Report.Date, UpdateSourceTrigger=PropertyChanged}"/>
-      <TextBlock Text="定例作業" FontSize="16" Margin="0,12,0,0"/>
-      <DataGrid ItemsSource="{Binding Report.RegularTasks}" SelectedItem="{Binding SelectedRegularTask}" AutoGenerateColumns="False" MinHeight="100"><DataGrid.Columns><DataGridTextColumn Header="内容" Binding="{Binding Content, UpdateSourceTrigger=PropertyChanged}"/></DataGrid.Columns></DataGrid>
-      <StackPanel Orientation="Horizontal"><Button Content="行追加" Command="{Binding AddRegularTaskCommand}" Margin="0,4,4,0"/><Button Content="行削除" Command="{Binding RemoveRegularTaskCommand}" CommandParameter="{Binding SelectedRegularTask}"/></StackPanel>
-      <TextBlock Text="スキルアップ活動" FontSize="16" Margin="0,12,0,0"/>
-      <DataGrid ItemsSource="{Binding Report.SkillUpActivities}" SelectedItem="{Binding SelectedSkill}" AutoGenerateColumns="False" MinHeight="100"><DataGrid.Columns><DataGridTextColumn Header="内容" Binding="{Binding Content, UpdateSourceTrigger=PropertyChanged}"/></DataGrid.Columns></DataGrid>
-      <StackPanel Orientation="Horizontal"><Button Content="行追加" Command="{Binding AddSkillCommand}" Margin="0,4,4,0"/><Button Content="行削除" Command="{Binding RemoveSkillCommand}" CommandParameter="{Binding SelectedSkill}"/></StackPanel>
-      <TextBlock Text="成果物" FontSize="16" Margin="0,12,0,0"/>
-      <DataGrid ItemsSource="{Binding Report.Deliverables}" SelectedItem="{Binding SelectedDeliverable}" AutoGenerateColumns="False" MinHeight="100"><DataGrid.Columns><DataGridTextColumn Header="成果物名" Binding="{Binding Name, UpdateSourceTrigger=PropertyChanged}"/><DataGridTextColumn Header="リンク" Binding="{Binding Link, UpdateSourceTrigger=PropertyChanged}"/></DataGrid.Columns></DataGrid>
-      <StackPanel Orientation="Horizontal"><Button Content="行追加" Command="{Binding AddDeliverableCommand}" Margin="0,4,4,0"/><Button Content="行削除" Command="{Binding RemoveDeliverableCommand}" CommandParameter="{Binding SelectedDeliverable}"/></StackPanel>
-      <TextBlock Text="{Binding ErrorMessage}" Foreground="Red" TextWrapping="Wrap" Margin="0,12,0,0"/>
-      <Button Content="保存" Command="{Binding SaveCommand}" Width="100" HorizontalAlignment="Right" Margin="0,12,0,0"/>
-    </StackPanel>
-  </ScrollViewer>
+<Window 
+    x:Class="DailyReport.MainWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    Title="日報作成"
+    Height="680"
+    Width="900">
+
+    <ScrollViewer>
+        <StackPanel Margin="16">
+            <TextBlock Text="名前"/>
+            <TextBox Text="{Binding Name, UpdateSourceTrigger=PropertyChanged}"/>
+            <TextBlock Text="日付" Margin="0,8,0,0"/>
+            <DatePicker SelectedDate="{Binding Report.Date, UpdateSourceTrigger=PropertyChanged}"/>
+            <TextBlock Text="定例作業" FontSize="16" Margin="0,12,0,0"/>
+            <DataGrid 
+                ItemsSource="{Binding Report.RegularTasks}"
+                SelectedItem="{Binding SelectedRegularTask}"
+                AutoGenerateColumns="False"
+                MinHeight="100">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Width="*" Header="内容" Binding="{Binding Content, UpdateSourceTrigger=PropertyChanged}"/>
+                </DataGrid.Columns>
+            </DataGrid>
+            <StackPanel Orientation="Horizontal">
+                <Button Content="行追加" Command="{Binding AddRegularTaskCommand}" Margin="0,4,4,0"/>
+                <Button Content="行削除" Command="{Binding RemoveRegularTaskCommand}" CommandParameter="{Binding SelectedRegularTask}" Margin="0,4,4,0"/>
+            </StackPanel>
+            <TextBlock Text="スキルアップ活動" FontSize="16" Margin="0,12,0,0"/>
+            <DataGrid 
+                ItemsSource="{Binding Report.SkillUpActivities}" 
+                SelectedItem="{Binding SelectedSkill}" 
+                AutoGenerateColumns="False" 
+                MinHeight="100">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Width="*" Header="内容" Binding="{Binding Content, UpdateSourceTrigger=PropertyChanged}"/>
+                </DataGrid.Columns>
+            </DataGrid>
+            <StackPanel Orientation="Horizontal">
+                <Button Content="行追加" Command="{Binding AddSkillCommand}" Margin="0,4,4,0"/>
+                <Button Content="行削除" Command="{Binding RemoveSkillCommand}" CommandParameter="{Binding SelectedSkill}" Margin="0,4,4,0"/>
+            </StackPanel>
+            <TextBlock Text="成果物" FontSize="16" Margin="0,12,0,0"/>
+            <DataGrid ItemsSource="{Binding Report.Deliverables}" SelectedItem="{Binding SelectedDeliverable}" AutoGenerateColumns="False" MinHeight="100">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Width="*" Header="成果物名" Binding="{Binding Name, UpdateSourceTrigger=PropertyChanged}"/>
+                    <DataGridTextColumn Width="*" Header="リンク" Binding="{Binding Link, UpdateSourceTrigger=PropertyChanged}"/>
+                </DataGrid.Columns>
+            </DataGrid>
+            <StackPanel Orientation="Horizontal">
+                <Button Content="行追加" Command="{Binding AddDeliverableCommand}" Margin="0,4,4,0"/>
+                <Button Content="行削除" Command="{Binding RemoveDeliverableCommand}" CommandParameter="{Binding SelectedDeliverable}" Margin="0,4,4,0"/>
+            </StackPanel>
+
+            <TextBlock Text="{Binding ErrorMessage}" Foreground="Red" TextWrapping="Wrap" Margin="0,12,0,0"/>
+            <Button Content="保存" Command="{Binding SaveCommand}" Width="100" HorizontalAlignment="Right" Margin="0,12,0,0"/>
+
+        </StackPanel>
+    </ScrollViewer>
 </Window>
